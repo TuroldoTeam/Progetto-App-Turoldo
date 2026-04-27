@@ -8,29 +8,70 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/Titolo"
         android:layout_width="246dp"
         android:layout_height="74dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
         android:text="App del Turoldo"
         android:textSize="12pt"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/Logo"
         android:layout_width="65dp"
         android:layout_height="74dp"
-        android:layout_marginRight="30"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.991"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024"
         app:srcCompat="@drawable/stemma" />
+
+    <Button
+        android:id="@+id/Orario"
+        android:layout_width="130dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="50dp"
+        android:text="Orario Classi"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/Registro"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/PTOF"
+        android:layout_width="130dp"
+        android:layout_height="86dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:text="PTOF"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/Libri"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/Registro"
+        android:layout_width="130dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="150dp"
+        android:text="Registro Elettronico"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Button
+        android:id="@+id/Libri"
+        android:layout_width="130dp"
+        android:layout_height="86dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="150dp"
+        android:text="Libri di Testo"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
