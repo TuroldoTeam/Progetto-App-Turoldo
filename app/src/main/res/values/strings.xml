@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">App Turoldo</string>
+    <string name="url_orario">https://www.istitutoturoldo.edu.it/didattica/calendario-scolastico/orario-scolastico/</string>
+    <string name="url_ptof">https://www.istitutoturoldo.edu.it/documento/regolamento-istituto/</string>
+    <string name="url_registro">https://www.istitutoturoldo.edu.it/servizio/registro-elettronico-docenti/</string>
+    <string name="url_libri">https://www.istitutoturoldo.edu.it/didattica/adozioni-libri-di-testo/</string>
+    <string name="url_circolari">https://www.istitutoturoldo.edu.it/comunicazioni/circolari/</string>
+    <string name="url_contatti">https://www.istitutoturoldo.edu.it/contatti/</string>
 </resources>

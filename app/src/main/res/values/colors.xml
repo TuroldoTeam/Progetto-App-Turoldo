@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="turoldo_navy">#0F2044</color>
+    <color name="turoldo_blue">#1A3A6B</color>
+    <color name="turoldo_gold">#D4A843</color>
+    <color name="turoldo_light_gold">#F0C96A</color>
+    <color name="turoldo_bg">#F2F4F8</color>
+    <color name="turoldo_card">#FFFFFF</color>
+    <color name="turoldo_text_primary">#0F2044</color>
+    <color name="turoldo_text_secondary">#6B7A99</color>
+    <color name="turoldo_divider">#E0E5F0</color>
 </resources>

@@ -1,125 +1,459 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<!--
+    ISTITUTO TUROLDO — activity_main.xml
+    ─────────────────────────────────────
+    DIPENDENZE RICHIESTE nel build.gradle (app):
+        implementation 'com.google.android.material:material:1.11.0'
+        implementation 'androidx.cardview:cardview:1.0.0'
+-->
+
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:background="#F5F5F5"
+    android:orientation="vertical"
+    android:background="@color/turoldo_bg"
     tools:context=".MainActivity">
 
-    <!-- Titolo -->
-
-    <TextView
-        android:id="@+id/titolo"
-        android:layout_width="wrap_content"
+    <!-- ══════════════════════════════════════════
+         HEADER FISSO — non scompare mai
+         ══════════════════════════════════════════ -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="App Turoldo"
-        android:layout_marginStart="10dp"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="#222222"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/logo"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        android:layout_marginTop="24dp"/>
+        android:orientation="vertical"
+        android:background="@color/turoldo_navy">
 
-    <!-- Logo -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:src="@drawable/stemma"
-        android:contentDescription="Logo"
-        app:layout_constraintTop_toTopOf="@id/titolo"
-        app:layout_constraintBottom_toBottomOf="@id/titolo"
-        app:layout_constraintStart_toEndOf="@id/titolo"
-        android:layout_marginStart="12dp"/>
+            <!-- Testo header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:paddingStart="24dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="14dp">
 
-    <!-- ORARIO -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ISTITUTO SUPERIORE"
+                    android:textColor="@color/turoldo_gold"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.18"
+                    android:layout_marginBottom="2dp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/orario"
-        android:layout_width="0dp"
-        android:layout_height="110dp"
-        android:text="Orario Classi"
-        android:layout_marginStart="10dp"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"
-        app:backgroundTint="#1565C0"
-        app:cornerRadius="24dp"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Turoldo"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="-0.02"
+                    android:layout_marginBottom="1dp" />
 
-        app:layout_constraintTop_toBottomOf="@id/titolo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/ptof"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Zogno · Bergamo"
+                    android:textColor="#99AABB"
+                    android:textSize="12sp" />
 
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="8dp"/>
+            </LinearLayout>
+        </FrameLayout>
 
-    <!-- PTOF -->
+        <!-- Striscia dorata sotto l'header -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/turoldo_gold" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/ptof"
-        android:layout_width="0dp"
-        android:layout_height="110dp"
-        android:text="PTOF"
-        android:layout_marginEnd="10dp"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        app:backgroundTint="#F9A825"
-        app:cornerRadius="24dp"
+    </LinearLayout>
 
-        app:layout_constraintTop_toTopOf="@id/orario"
-        app:layout_constraintStart_toEndOf="@id/orario"
-        app:layout_constraintEnd_toEndOf="parent"
 
-        android:layout_marginStart="8dp"/>
+    <!-- ══════════════════════════════════════════
+         CONTENUTO PRINCIPALE SCROLLABILE
+         ══════════════════════════════════════════ -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <!-- REGISTRO -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingBottom="32dp"
+            android:paddingHorizontal="16dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/registro"
-        android:layout_width="0dp"
-        android:layout_height="110dp"
-        android:text="Registro\nElettronico"
-        android:layout_marginStart="10dp"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"
-        app:backgroundTint="#C62828"
-        app:cornerRadius="24dp"
 
-        app:layout_constraintTop_toBottomOf="@id/orario"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/libri"
+            <!-- ── SEZIONE: ACCESSO RAPIDO ─────────────────── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ACCESSO RAPIDO"
+                android:textColor="@color/turoldo_text_secondary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.12"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="12dp" />
 
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"/>
 
-    <!-- LIBRI -->
+            <!-- ── RIGA 1: Orario + Registro ─────────────── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/libri"
-        android:layout_width="0dp"
-        android:layout_height="110dp"
-        android:text="Libri di Testo"
-        android:layout_marginEnd="10dp"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"
-        app:backgroundTint="#00838F"
-        app:cornerRadius="24dp"
+                <!-- Card ORARIO -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/orario"
+                    android:layout_width="0dp"
+                    android:layout_height="130dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/turoldo_navy">
 
-        app:layout_constraintTop_toTopOf="@id/registro"
-        app:layout_constraintStart_toEndOf="@id/registro"
-        app:layout_constraintEnd_toEndOf="parent"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="16dp">
 
-        android:layout_marginStart="8dp"/>
+                        <FrameLayout
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="10dp">
+                            <View
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="@drawable/circle_gold_faded"
+                                android:alpha="0.25" />
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_schedule"
+                                app:tint="@color/turoldo_gold" />
+                        </FrameLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Orario"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Scolastico"
+                            android:textColor="#99AABB"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Card REGISTRO -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/registro"
+                    android:layout_width="0dp"
+                    android:layout_height="130dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/turoldo_card">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="16dp">
+
+                        <FrameLayout
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="10dp">
+                            <View
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="@drawable/circle_blue_faded"
+                                android:alpha="0.12" />
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_assignment"
+                                app:tint="@color/turoldo_blue" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Registro"
+                            android:textColor="@color/turoldo_text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Elettronico"
+                            android:textColor="@color/turoldo_text_secondary"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+
+            <!-- ── RIGA 2: Libri + Regolamento ───────────── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <!-- Card LIBRI -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/libri"
+                    android:layout_width="0dp"
+                    android:layout_height="130dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/turoldo_card">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="16dp">
+
+                        <FrameLayout
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="10dp">
+                            <View
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="@drawable/circle_blue_faded"
+                                android:alpha="0.12" />
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_library_books"
+                                app:tint="@color/turoldo_blue" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Libri"
+                            android:textColor="@color/turoldo_text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="di Testo"
+                            android:textColor="@color/turoldo_text_secondary"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Card REGOLAMENTO -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/ptof"
+                    android:layout_width="0dp"
+                    android:layout_height="130dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/turoldo_gold">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="16dp">
+
+                        <FrameLayout
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="10dp">
+                            <View
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="@drawable/circle_dark_faded"
+                                android:alpha="0.15" />
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_menu_book"
+                                app:tint="@color/turoldo_navy" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Regolamento"
+                            android:textColor="@color/turoldo_navy"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Istituto"
+                            android:textColor="#664A00"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+
+            <!-- ── SEPARATORE SEZIONE ─────────────────────── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CONTATTI &amp; INFO"
+                android:textColor="@color/turoldo_text_secondary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.12"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="12dp" />
+
+
+            <!-- ── CARD CONTATTI (stile lista) ────────────── -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardContatti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/turoldo_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Voce 1: Telefono -->
+                    <LinearLayout
+                        android:id="@+id/telefono"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="20dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_phone"
+                            app:tint="@color/turoldo_blue"
+                            android:layout_marginEnd="16dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Segreteria"
+                                android:textColor="@color/turoldo_text_primary"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0345 92210"
+                                android:textColor="@color/turoldo_text_secondary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Divisore -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:background="@color/turoldo_divider" />
+
+                    <!-- Voce 2: Email -->
+                    <LinearLayout
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="20dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_email"
+                            app:tint="@color/turoldo_blue"
+                            android:layout_marginEnd="16dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Email istituzionale"
+                                android:textColor="@color/turoldo_text_primary"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="bgis013003@istruzione.it"
+                                android:textColor="@color/turoldo_text_secondary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
